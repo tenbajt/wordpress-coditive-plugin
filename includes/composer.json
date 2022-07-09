@@ -1,0 +1,11 @@
+{
+    "name": "irrelevant/irrelevant",
+    "type": "project",
+    "description": "irrelevant",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Coditive\\Form\\": ""
+        }
+    }
+}

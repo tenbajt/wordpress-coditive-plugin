@@ -1,0 +1,23 @@
+{
+    "name": "tenbajt-product-price-calc",
+    "version": "1.0.0",
+    "description": "Displays a form which enables product gross price calculations.",
+    "main": "build/index.js",
+    "scripts": {
+        "build": "wp-scripts build",
+        "format": "wp-scripts format",
+        "lint:css": "wp-scripts lint-style",
+        "lint:js": "wp-scripts lint-js",
+        "packages-update": "wp-scripts packages-update",
+        "plugin-zip": "wp-scripts plugin-zip",
+        "start": "wp-scripts start"
+    },
+    "author": "Szymon Mazurczak",
+    "license": "GPL-2.0-or-later",
+    "devDependencies": {
+        "@wordpress/scripts": "^23.4.0"
+    },
+    "dependencies": {
+        "styled-components": "^5.3.5"
+    }
+}
