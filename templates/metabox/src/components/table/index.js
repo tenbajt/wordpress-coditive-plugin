@@ -1,4 +1,4 @@
-import * as Styled from "./styles";
+import * as S from "./styles";
 
 export default function Table({ meta }) {
     const data = {
@@ -13,17 +13,17 @@ export default function Table({ meta }) {
     };
 
     return (
-        <Styled.Table>
+        <S.Table>
             {Object.keys(data).map((key, index) => (
-                <Styled.Cell key={index}>
-                    <Styled.Label>
+                <S.Cell key={index}>
+                    <S.Label>
                         {key}
-                    </Styled.Label>
-                    <Styled.Value>
+                    </S.Label>
+                    <S.Value>
                         {data[key]}
-                    </Styled.Value>
-                </Styled.Cell>
+                    </S.Value>
+                </S.Cell>
             ))}
-        </Styled.Table>
+        </S.Table>
     )
 }

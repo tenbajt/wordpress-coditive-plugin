@@ -1,13 +1,10 @@
 import styled, { css, keyframes } from "styled-components";
-import { breakpoint, color, fontSize, fontWeights, radius } from "../../resources"
+import { breakpoint, color, fontSize, fontWeight, radius } from "../../resources"
 
 export const Form = styled.form`
     width: 100%;
-    gap: 1.25rem;
-    display: grid;
     padding: 1.25rem 1rem;
     overflow: hidden;
-    position: relative;
     font-family: 
         Inter,
         ui-sans-serif,
@@ -32,12 +29,17 @@ export const Form = styled.form`
     }
 `;
 
+export const Fieldset = styled.fieldset`
+    display: grid;
+    gap: 1.25rem;
+`;
+
 export const Label = styled.label`
     color: ${color.gray._700};
     cursor: pointer;
     position: relative;
     font-size: ${fontSize.sm.size};
-    font-weight: ${fontWeights.medium};
+    font-weight: ${fontWeight.medium};
     line-height: ${fontSize.sm.height};
 `;
 
@@ -87,7 +89,7 @@ export const PriceContainer = styled.div`
 `;
 
 export const PriceField = styled(Field)`
-    padding-right: 3.375rem;
+    padding-right: 3.5rem;
     -moz-appearance: textfield;
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -97,10 +99,10 @@ export const PriceField = styled(Field)`
 `;
 
 export const CurrencyField = styled(Field)`
-    right: 0;
-    width: 3.375rem;
-    bottom: 0;
+    width: 3.5rem;
     position: absolute;
+    right: 0;
+    bottom: 0;
     box-shadow: none;
     border-color: transparent;
     background-color: transparent;
@@ -110,38 +112,38 @@ export const TaxRateSelector = styled(Field)`
     width: 5rem;
 `;
 
-export const Message = styled.div`
+export const Result = styled.div`
     color: ${color.gray._800};
-    ${({ invalid }) => invalid && css`
-        color: red;
-    `}
     ${breakpoint.sm} {
         font-size: ${fontSize.sm.size};
         line-height: ${fontSize.sm.height};
     }
 `;
 
-export const SubmitButton = styled.input`
+export const SubmitButton = styled.button`
     width: 100%;
-    color: white;
     margin: 0;
-    cursor: pointer;
-    display: flex;
     padding: 0.5rem 1rem;
-    appearance: none;
-    transition: background-color 200ms;
-    font-family: inherit;
-    font-weight: ${fontWeights.medium};
-    border-radius: ${radius.md};
+    position: relative;
+    display: flex;
     justify-content: center;
+    color: white;
+    appearance: none;
+    font-family: inherit;
+    font-weight: ${fontWeight.medium};
+    border-radius: ${radius.md};
     background-color: ${color.indigo._600};
-    &:hover {
+    transition: background-color 200ms;
+    &:disabled {
+        cursor: default;
+    }
+    &:hover:enabled {
         background-color: ${color.indigo._700};
     }
     &:focus {
         outline: 2px solid transparent;
-        box-shadow: white 0 0 0 2px, ${color.indigo._500} 0 0 0 4px, black 0 0 0 0;
         outline-offset: 2px;
+        box-shadow: white 0 0 0 2px, ${color.indigo._500} 0 0 0 4px, black 0 0 0 0;
     }
     ${breakpoint.sm} {
         font-size: ${fontSize.sm.size};
@@ -159,19 +161,19 @@ const spinAnimation = keyframes`
 `;
 
 export const Spinner = styled.div`
-    inset: 0;
-    cursor: default;
-    display: grid;
+    top: 50%;
+    left: 1rem;
     position: absolute;
+    display: grid;
     place-content: center;
+    transform: translateY(-50%);
     &:after {
         content: "";
-        cursor: default;
-        border: 0.25rem solid ${color.gray._200};
-        border-top: 0.25rem solid ${color.indigo._500};
+        border: 0.125rem solid white;
+        border-top: 0.125rem solid ${color.indigo._600};
         border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
+        width: 1.25rem;
+        height: 1.25rem;
         animation: ${spinAnimation} 1s linear infinite;
     }
 `;

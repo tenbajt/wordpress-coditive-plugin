@@ -1,4 +1,4 @@
-import Form from "./components/form";
+import Form from "./components/Form";
 
 /**
  * Get the root element.
@@ -18,4 +18,4 @@ const root = document.getElementById(props.id);
  * 
  * @see https://pl.reactjs.org/docs/react-dom.html#render
  */
-wp.element.render(<Form url={props.url} nonce={props.nonce} action={props.action}/>, root);
+wp.element.render(<Form apiPath={props.apiPath} taxRateOptions={props.taxRateOptions}/>, root);
